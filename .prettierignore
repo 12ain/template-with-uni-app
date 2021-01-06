@@ -1,0 +1,4 @@
+node_modules
+src/unpackage
+src/components/uni-**
+static
