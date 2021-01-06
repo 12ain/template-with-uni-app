@@ -4,6 +4,7 @@
     <view>
       <text class="title">{{ title }}</text>
     </view>
+    <text> {{ $u.timeFormat(new Date().valueOf(), 'yyyy年mm月dd日') }}</text>
   </view>
 </template>
 
