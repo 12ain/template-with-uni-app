@@ -4,7 +4,9 @@
     <view>
       <text class="title">{{ title }}</text>
     </view>
-    <text> {{ $u.timeFormat(new Date().valueOf(), 'yyyy年mm月dd日') }}</text>
+    <text>
+      {{ $u.timeFormat(new Date().valueOf(), 'yyyy年mm月dd日hh:MM:ss') }}
+    </text>
   </view>
 </template>
 
@@ -34,11 +36,6 @@ export default {
   width: 200rpx;
   height: 200rpx;
   margin: 200rpx auto 50rpx auto;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
 }
 
 .title {
