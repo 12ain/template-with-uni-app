@@ -18,6 +18,6 @@ module.exports = {
     sourceType: 'module',
     parser: 'babel-eslint',
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'prettier'],
   rules: {},
 };
