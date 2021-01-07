@@ -19,5 +19,22 @@ module.exports = {
     parser: 'babel-eslint',
   },
   plugins: ['vue', 'prettier'],
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 0,
+    'vue/max-attributes-per-line': 0,
+    'vue/no-parsing-error': [
+      2,
+      {
+        'x-invalid-end-tag': false,
+      },
+    ],
+  },
+  settings: {
+    'import/core-modules': ['vue', 'vuex', 'moment'],
+    'import/resolver': {
+      alias: {
+        map: [['@', './src/']],
+      },
+    },
+  },
 };
