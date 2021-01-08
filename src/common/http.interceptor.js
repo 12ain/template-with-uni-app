@@ -22,7 +22,7 @@ const install = (Vue, vm) => {
   Vue.prototype.$u.http.interceptor.request = (config) => {
     // 方式一，存放在vuex的token，假设使用了uView封装的vuex方式
     // 见：https://uviewui.com/components/globalVariable.html
-    config.header.Authorization = `Bearer ${vm.token}`;
+    config.header.Authorization = `Bearer ${vm.api_token}`;
 
     // 方式二，如果没有使用uView封装的vuex方法，那么需要使用$store.state获取
     // config.header.token = vm.$store.state.token;
@@ -37,7 +37,9 @@ const install = (Vue, vm) => {
     //   config.header.Authorization = 'Bearer ' + token;
     // }
     // 清除无需token的接口
-    if (whiteList.includes(config.url)) config.header.noToken = true;
+    if (whiteList.includes(config.url)) {
+      delete config.header.Authorization;
+    }
 
     // 删除无用参数
     if (config.data) {
@@ -61,7 +63,7 @@ const install = (Vue, vm) => {
 
   // 响应拦截，判断状态码是否通过
   Vue.prototype.$u.http.interceptor.response = (res) => {
-    console.log(res);
+    // console.log(res);
     if (res.code === 0) {
       // 如果配置了originalData为true，请留意这里的返回值
       return res.data;
